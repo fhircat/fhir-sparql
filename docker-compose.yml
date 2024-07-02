@@ -1,0 +1,22 @@
+services:
+  fhir-sparql:
+    container_name: fhir-sparql
+    hostname: fhir-sparql
+    build:
+      context: ./fhir-sparql-js
+      dockerfile: fhir-sparql-js/Dockerfile
+      additional_contexts:
+        - ../fhir-sparql-common=./fhir-sparql-common
+    ports:
+      - 8080:8080
+    networks:
+      - fhir-network
+
+networks:
+  fhir-network:
+    name: fhir-network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.113.0.0/16
