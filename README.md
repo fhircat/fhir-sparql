@@ -45,12 +45,19 @@ GET <FHIR endpoint>Procedure?subject=http://localhost:8080/hapi/fhir/Patient/2&c
 (assuming `Patient/2` was the only patient in the results that came back from the 1st GET).
 
 
-## Installation
-
-Do the usual, with the small twist that `fhir-sparql-js is one level down in the repo:
+## Docker installation
+For ease of use we have created a docker for the fhir-sparql installation
 ``` shell
 git clone --recurse-submodules git@github.com:fhircat/fhir-sparql # or use http(s)
-cd fhir-sparql/fhir-sparql-js # 'cause the repo also houses fhir-sparql-java and common tests.
+cd fhir-sparql
+docker build -t fhir-sparql ./
+docker run -p 8080:8080 fhir-sparql
+```
+
+## Server installation
+``` shell
+git clone --recurse-submodules git@github.com:fhircat/fhir-sparql # or use http(s)
+cd fhir-sparql
 npm ci
 npm run build
 npm run test # not strictly needed, but a good idea
