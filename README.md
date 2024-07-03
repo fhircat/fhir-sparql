@@ -1,4 +1,4 @@
-# fhir-sparql-js
+# fhir-sparql
 Translate SPARQL queries over a FHIR data to FHIR REST API invocations, execute, and integrate response into query orchestration.
 
 [FhirSparql](src/FhirSparql.ts) converts a [query](../fhir-sparql-test/src/test/resources/org/uu3/obs-proc.srq) that spans FHIR Resources, e.g. Observation and Procedure:
@@ -44,8 +44,29 @@ GET <FHIR endpoint>Procedure?subject=http://localhost:8080/hapi/fhir/Patient/2&c
 ```
 (assuming `Patient/2` was the only patient in the results that came back from the 1st GET).
 
+## Installation
+For installation purposes we have 3 options:
+- docker compose
+- docker
+- server installation
 
-## Docker installation
+We have created a docker and docker compose implementation to make it as easy as possible to implement the fhir-sparql 
+server. All the implementations work with the same `curl` command you can find in the CLI execution section. 
+
+### Docker compose
+With docker compose fhir-sparql can easily be implemented locally
+``` shell
+git clone --recurse-submodules git@github.com:fhircat/fhir-sparql # or use http(s)
+cd fhir-sparql
+docker compose up -d
+```
+
+To stop docker compose:
+``` shell
+docker compose down
+```
+
+### Docker
 For ease of use we have created a docker for the fhir-sparql installation
 ``` shell
 git clone --recurse-submodules git@github.com:fhircat/fhir-sparql # or use http(s)
@@ -54,7 +75,7 @@ docker build -t fhir-sparql ./
 docker run -p 8080:8080 fhir-sparql
 ```
 
-## Server installation
+### Server installation
 ``` shell
 git clone --recurse-submodules git@github.com:fhircat/fhir-sparql # or use http(s)
 cd fhir-sparql
