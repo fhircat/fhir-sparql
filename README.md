@@ -1,3 +1,12 @@
+# FHIR SPARQL
+This is the original repo for the FHIR SPARQL project.
+It has since been split into three repos:
+- [fhir-sparql-test](../../../fhir-sparql-test/)
+- [fhir-sparql-js](../../../fhir-sparql-js/)
+- [fhir-sparql-java](../../../fhir-sparql-java/)
+
+The original fhir-sparql repo can be obtained from [fhir-sparql-js #e3aef85](https://github.com/fhircat/fhir-sparql-js/tree/e3aef856c4ad0e39e7b5eb81edc5a0f88a7e805a)
+
 # fhir-sparql-
 Translate SPARQL queries over a FHIR data to FHIR REST API invocations, execute, and integrate response into query orchestration.
 
